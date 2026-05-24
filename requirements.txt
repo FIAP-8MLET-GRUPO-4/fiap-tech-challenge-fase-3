@@ -26,8 +26,8 @@ tqdm==4.66.5
 joblib==1.4.2
 python-dotenv==1.0.1
 
-# Download de dataset (Kaggle)
-kaggle==1.6.17
+# Download de dataset (Google Drive — link oficial do enunciado)
+gdown==5.2.0
 
 # Geo (opcional para mapas)
 folium==0.17.0

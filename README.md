@@ -26,12 +26,14 @@ Atrasos de voos impactam milhões de passageiros todos os anos. Neste projeto us
 
 ## Dataset
 
-- **Fonte:** [Kaggle — 2015 Flight Delays and Cancellations](https://www.kaggle.com/datasets/usdot/flight-delays)
+- **Fonte oficial (link do enunciado):** [📁 Google Drive — Base de dados MLET Fase 3](https://drive.google.com/drive/folders/1aS7exW5N0qq1uIxvIBcAfc18OHojOMjj)
+- **Origem dos dados:** U.S. Department of Transportation — Flight Delays and Cancellations (2015)
 - **Volume:** ~5.8M voos, 31 colunas
 - **Período:** 2015 (ano inteiro)
+- **Arquivos:** `flights.csv` (~580 MB), `airlines.csv`, `airports.csv`
 - **Dicionário de dados:** [`docs/dicionario_dados_flights.pdf`](docs/dicionario_dados_flights.pdf)
 
-> ⚠️ Os arquivos CSV **não são versionados** (ver `.gitignore`). Use `scripts/download_data.py` ou siga [`data/README.md`](data/README.md).
+> ⚠️ Os arquivos CSV **não são versionados** (ver `.gitignore`). Baixe com `python scripts/download_data.py` (usa `gdown` para pegar a pasta inteira do Drive) ou siga as instruções manuais em [`data/README.md`](data/README.md).
 
 ## Arquitetura do projeto
 
@@ -55,7 +57,7 @@ flights.csv ──► load_flights ──► clean_pipeline ──► feature_pi
 
 - Python 3.11+
 - ~8 GB de RAM disponíveis (para usar o dataset completo de 5.8M linhas)
-- [Kaggle CLI](https://github.com/Kaggle/kaggle-api) (opcional, para download automático)
+- Acesso ao [Google Drive do desafio](https://drive.google.com/drive/folders/1aS7exW5N0qq1uIxvIBcAfc18OHojOMjj) (o script de download usa `gdown`, instalado via `requirements.txt`)
 
 ## Configuração
 
@@ -78,9 +80,9 @@ pip install -r requirements.txt
 cp .env.example .env
 ```
 
-4. Baixe o dataset:
+4. Baixe o dataset (Google Drive oficial do desafio):
 ```bash
-# Opção A — automático (requer Kaggle CLI configurado)
+# Opção A — automático (usa gdown, já incluído em requirements.txt)
 python scripts/download_data.py
 
 # Opção B — manual: ver data/README.md
@@ -226,7 +228,7 @@ Variáveis listadas em `src.config.LEAKY_COLS` (`DEPARTURE_DELAY`, `TAXI_OUT`, `
 │   ├── 03_regression.ipynb
 │   └── 04_unsupervised.ipynb
 ├── scripts/
-│   ├── download_data.py                # baixa do Kaggle
+│   ├── download_data.py                # baixa do Google Drive (gdown)
 │   └── run_pipeline.py                 # roda tudo em CLI
 ├── models_artifacts/                   # joblib dos modelos (gitignored)
 └── reports/                            # métricas + figuras (gitignored)
@@ -243,7 +245,7 @@ Variáveis listadas em `src.config.LEAKY_COLS` (`DEPARTURE_DELAY`, `TAXI_OUT`, `
 - **matplotlib / seaborn / plotly** — visualização
 - **Jupyter** — notebooks
 - **joblib** — serialização de modelos
-- **kaggle** — download do dataset
+- **gdown** — download do dataset oficial via Google Drive
 
 ## Requisitos atendidos
 
