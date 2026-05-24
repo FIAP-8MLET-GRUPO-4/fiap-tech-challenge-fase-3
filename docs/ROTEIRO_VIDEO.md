@@ -5,7 +5,7 @@
 
 ---
 
-## Mariana (~2min30s) — Introdução, dataset e EDA
+## Silvio (~2min30s) — Introdução, dataset e EDA
 
 - Apresentar o grupo e o desafio (90% da nota da fase).
 - Contextualizar o problema: atrasos aéreos impactam milhões de passageiros;
@@ -58,11 +58,11 @@
     e erra mais nos atrasos extremos (>120 min, ~aleatórios sem clima).
 - Resumir: LightGBM > Ridge em todas as métricas; sem dados meteorológicos
   previstos, o teto é limitado.
-- Passar para o Silvio.
+- Passar para a Mariana.
 
 ---
 
-## Silvio (~2min30s) — Não-supervisionado + conclusões
+## Mariana (~2min30s) — Não-supervisionado + conclusões
 
 - Abrir `notebooks/04_unsupervised.ipynb`:
   - Pergunta-guia: *"É possível agrupar aeroportos com perfis semelhantes?"*
@@ -89,10 +89,10 @@
 
 | Apresentador | Seções | Notebooks | Tempo |
 | :--- | :--- | :---: | :---: |
-| **Mariana** | Introdução + dataset + EDA | 01 | ~2min30s |
+| **Silvio** | Introdução + dataset + EDA | 01 | ~2min30s |
 | **Doglas** | Feature engineering + classificação | 02 | ~2min30s |
 | **Ricardo** | Regressão da duração | 03 | ~2min30s |
-| **Silvio** | Clusterização + conclusões | 04 | ~2min30s |
+| **Mariana** | Clusterização + conclusões | 04 | ~2min30s |
 | | | **Total** | **~10min** |
 
 ---
