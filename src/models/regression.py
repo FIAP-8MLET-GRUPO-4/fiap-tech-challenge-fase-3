@@ -53,7 +53,7 @@ def build_ridge_pipeline(
     inner = _wrap_log_target(ridge) if log_target else ridge
     return Pipeline(
         [
-            ("preprocess", make_preprocessor("onehot")),
+            ("preprocess", make_preprocessor(high_cardinality_strategy="onehot")),
             ("reg", inner),
         ]
     )
@@ -78,7 +78,7 @@ def build_lightgbm_regressor(
     inner = _wrap_log_target(base) if log_target else base
     return Pipeline(
         [
-            ("preprocess", make_preprocessor("onehot")),
+            ("preprocess", make_preprocessor(high_cardinality_strategy="onehot")),
             ("reg", inner),
         ]
     )

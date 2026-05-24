@@ -61,9 +61,17 @@ def find_optimal_k(
     k_range: range = range(2, 11),
     random_state: int = 42,
 ) -> pd.DataFrame:
-    """Avalia K-Means para diferentes K usando inércia e silhouette."""
+    """Avalia K-Means para diferentes K usando inércia e silhouette.
+
+    Valores de K com `K >= n_samples` são pulados — silhouette exige
+    `2 <= n_labels <= n_samples - 1`. Isso é defensivo contra amostras
+    pequenas (por exemplo, datasets em modo de teste).
+    """
+    n_samples = X.shape[0]
     results = []
     for k in k_range:
+        if k >= n_samples:
+            continue
         km = KMeans(n_clusters=k, n_init=10, random_state=random_state)
         labels = km.fit_predict(X)
         sil = silhouette_score(X, labels) if k > 1 else np.nan
