@@ -82,7 +82,7 @@ def make_preprocessor(
 def build_logistic_pipeline(random_state: int = 42) -> Pipeline:
     return Pipeline(
         [
-            ("preprocess", make_preprocessor("onehot")),
+            ("preprocess", make_preprocessor(high_cardinality_strategy="onehot")),
             (
                 "clf",
                 LogisticRegression(
@@ -104,7 +104,7 @@ def build_lightgbm_pipeline(
         raise ImportError("lightgbm não instalado. `pip install lightgbm`.")
     return Pipeline(
         [
-            ("preprocess", make_preprocessor("onehot")),
+            ("preprocess", make_preprocessor(high_cardinality_strategy="onehot")),
             (
                 "clf",
                 LGBMClassifier(
@@ -128,7 +128,7 @@ def build_xgboost_pipeline(
         raise ImportError("xgboost não instalado. `pip install xgboost`.")
     return Pipeline(
         [
-            ("preprocess", make_preprocessor("onehot")),
+            ("preprocess", make_preprocessor(high_cardinality_strategy="onehot")),
             (
                 "clf",
                 XGBClassifier(
