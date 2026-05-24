@@ -34,7 +34,7 @@ def fill_delay_reasons(df: pd.DataFrame) -> pd.DataFrame:
     df = df.copy()
     for col in config.DELAY_REASON_COLS:
         if col in df.columns:
-            df[col] = df[col].fillna(0)
+            df[col] = pd.to_numeric(df[col], errors="coerce").fillna(0).astype("float32")
     return df
 
 

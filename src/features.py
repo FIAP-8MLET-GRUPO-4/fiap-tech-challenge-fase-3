@@ -41,11 +41,18 @@ def hhmm_to_hour(series: pd.Series) -> pd.Series:
 
 
 def hour_to_period(hour: pd.Series) -> pd.Series:
-    """Bucketiza hora em período do dia."""
-    bins = [-1, 5, 11, 17, 21, 24]
-    labels = ["madrugada", "manha", "tarde", "noite", "madrugada"]
-    out = pd.cut(hour, bins=bins, labels=labels[:-1], ordered=False)
-    return out.astype("category")
+    """Bucketiza hora em período do dia.
+
+    madrugada: 0–5 e 22–23 | manhã: 6–11 | tarde: 12–17 | noite: 18–21
+    """
+    conditions = [
+        (hour >= 6) & (hour <= 11),
+        (hour >= 12) & (hour <= 17),
+        (hour >= 18) & (hour <= 21),
+    ]
+    choices = ["manha", "tarde", "noite"]
+    period = np.select(conditions, choices, default="madrugada")
+    return pd.Categorical(period, categories=["madrugada", "manha", "tarde", "noite"])
 
 
 def month_to_season(month: pd.Series) -> pd.Series:
