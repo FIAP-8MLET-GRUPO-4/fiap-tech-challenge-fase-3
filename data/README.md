@@ -1,6 +1,10 @@
 # Dados — Tech Challenge Fase 3
 
-Esta pasta deve conter o dataset **2015 Flight Delays and Cancellations** (Kaggle / U.S. DOT), composto por 3 arquivos:
+Esta pasta deve conter o dataset **Flight Delays and Cancellations** (U.S. DOT, 2015), fornecido oficialmente pelo enunciado do desafio via Google Drive:
+
+🔗 **Link oficial:** https://drive.google.com/drive/folders/1aS7exW5N0qq1uIxvIBcAfc18OHojOMjj
+
+O dataset é composto por 3 arquivos:
 
 | Arquivo | Conteúdo | Tamanho |
 | :--- | :--- | ---: |
@@ -14,19 +18,21 @@ Os arquivos **não são versionados no Git** (ver `.gitignore`).
 
 ### Opção 1 — Script automático (recomendado)
 
-Requer [Kaggle CLI](https://github.com/Kaggle/kaggle-api) configurado com `~/.kaggle/kaggle.json`:
+Requer `gdown` (já incluído em `requirements.txt`):
 
 ```bash
+pip install -r requirements.txt
 python scripts/download_data.py
 ```
 
-O script baixa e descompacta os três CSVs nesta pasta.
+O script baixa a pasta inteira do Google Drive para `data/` e valida que
+os três CSVs foram extraídos.
 
 ### Opção 2 — Manual
 
-1. Acesse: https://www.kaggle.com/datasets/usdot/flight-delays
-2. Faça login e clique em **Download**
-3. Descompacte o `.zip` e mova `flights.csv`, `airlines.csv` e `airports.csv` para esta pasta (`data/`)
+1. Acesse: https://drive.google.com/drive/folders/1aS7exW5N0qq1uIxvIBcAfc18OHojOMjj
+2. Baixe os três arquivos (`flights.csv`, `airlines.csv`, `airports.csv`).
+3. Mova-os para esta pasta (`data/`).
 
 ## Verificação
 
