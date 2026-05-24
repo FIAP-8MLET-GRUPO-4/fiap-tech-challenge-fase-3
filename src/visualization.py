@@ -47,7 +47,7 @@ def plot_delay_rate_by(
     )
     if top_n:
         agg = agg.head(top_n)
-    sns.barplot(x=agg.index, y=agg["mean"] * 100, ax=ax, palette=PALETTE)
+    sns.barplot(x=agg.index, y=agg["mean"] * 100, hue=agg.index, ax=ax, palette=PALETTE, legend=False)
     ax.set_title(f"Taxa de atraso (%) por {by}")
     ax.set_ylabel("% voos atrasados")
     ax.set_xlabel(by)
@@ -89,7 +89,7 @@ def plot_top_routes(
         .sort_values(ascending=False)
         .head(top_n)
     )
-    sns.barplot(x=routes.values, y=routes.index, ax=ax, palette=PALETTE)
+    sns.barplot(x=routes.values, y=routes.index, hue=routes.index, ax=ax, palette=PALETTE, legend=False)
     ax.set_title(f"Top {top_n} rotas por volume de voos")
     ax.set_xlabel("Número de voos")
     return ax
